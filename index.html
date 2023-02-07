@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>HOME</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/favicon.css">
+  <script defer src="./js/greetings.js" type="module"></script>
+  <script defer src="./js/clock.js" type="module"></script>
+  <script defer src="./js/todo.js"></script>
+  <script defer src="./js/toggle.js"></script>
+  <script defer src="./js/links.js"></script>
+</head>
+
+<body>
+  <div class="wrap"> 
+    <form id="login-form" class="hidden">
+      <span>Hello, what's your name?</span>
+      <input class="login_input" required maxlength="15" type="text" />
+    </form>
+
+    <div class="container hidden">
+      <div class="left-bar">
+        <span class="material-icons setting-button">
+        settings
+        </span>
+        <span class="material-icons help-button">
+          help_outline
+        </span>
+      </div>
+      <div class="left-box">
+        
+        <div class="clocks">
+          <span id="date">1995/8/24 수요일</span>
+          <span id="clock" >00:00</span>
+          <span id="greeting"></span>
+        </div>
+        <div class="tools">
+          <div class="tools_google">
+
+          </div>
+          <div class="tools_naver">
+
+          </div>
+        </div>
+
+        <div class="todo">
+          <form id="todo_form">
+          <input type="text" placeholder="Write a To Do and Press Enter">
+          </form>
+          <ul id="todo_list"></ul>
+        </div>
+      </div>
+
+      <div class="right-box">
+        <div class="search">
+          <div class="search_top">
+            <span class="engine-title">Google</span>
+            <label for="toggle" class="toggle-switch">
+              <span class="toggle_button"></span>
+            </label>
+          </div>
+
+          <form id="search_form">
+            <span class="material-icons">
+              search
+            </span>
+            <input type="text" class="search-input"/>
+          </form>
+
+          <div class="links">
+            <div id="addShortcut">
+              <span class="material-icons btn-thumb">
+                add
+              </span>
+              <span class="item_title">바로가기 추가</span>
+            </div>
+          </div>
+          <div class="btn-folder folder1">PLAY</div>
+          <div class="btn-folder folder2">STUDY</div>
+          <div class="btn-folder folder3">OTHER</div>
+        </div>
+
+        
+      </div>
+
+      <div class="link-add-bg hidden">
+        <div class="link-add">
+          <span>바로가기 추가</span>
+          <form>
+            <span>이름</span>
+            <input type="text" class="link_name" />
+            <span>주소(URL)</span>
+            <input type="text" class="link_url" /> 
+            <button class="add-close btn-add">취소</button>
+            <input type="submit" value="완료" class="add-submit btn-add" disabled />
+          </form>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</body>
+</html>
+
