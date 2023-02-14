@@ -145,8 +145,6 @@ function paintLink(newLink) {
 
 
   linkEl.insertBefore(newitem, addShortcut)
-
-  
 }
 
 /*링크 마우스오버 이벤트*******************/
@@ -197,7 +195,7 @@ function outItem(event) {
 }
 
 /*링크 메뉴*******************/
-const drop = document.querySelectorAll("#link-menu")
+// const drop = document.querySelectorAll("#link-menu")
 
 let drops = []
 let menuon = false
@@ -232,7 +230,6 @@ linkdelete.forEach( (e) => {
 
 function deleteMenu(event) {
   event.preventDefault()
-  console.log(links)
   const item = event.target.closest(".link-item")
   item.remove()
   

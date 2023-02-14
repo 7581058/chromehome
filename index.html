@@ -20,6 +20,7 @@
   <script defer src="./js/todo.js"></script>
   <script defer src="./js/toggle.js"></script>
   <script defer src="./js/links.js"></script>
+  <script defer src="./js/folder.js"></script>
 </head>
 
 <body>
@@ -85,13 +86,16 @@
               </span>
               <span class="item_title">바로가기 추가</span>
             </div>
+            <div id="folders" class="folders">
+              <div id="folder1" class="btn-folder folder1 folderon">
+                &#8226;
+                <div id="foldermenu" class="foldermenu hidden" value="1">삭제하기</div>
+              </div>
+              
+              <div class="btn-addfolder">+</div>
+            </div>
           </div>
-          <div class="btn-folder folder1">PLAY</div>
-          <div class="btn-folder folder2">STUDY</div>
-          <div class="btn-folder folder3">OTHER</div>
         </div>
-
-        
       </div>
 
       <div class="link-add-bg hidden">

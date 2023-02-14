@@ -80,7 +80,6 @@
   width: 40%;
   height: 100%;
   box-sizing: border-box;
-  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -243,24 +242,23 @@
 .right-box {
   position: absolute;
   top: 0;
-  right: 0;
-  width: calc(60% - 50px);
+  right: 50px;
+  width: calc(60% - 150px);
   height: 100%;
   box-sizing: border-box;
-  padding: 10px;
   display: flex;
   justify-content: center;
 }
 
 /* RIGHT-SEARCH */
 .search {
-  width: calc(100% - 50px);
+  width: 100%;
   display: flex;
   justify-content: center;
 }
 
 .search_top {
-  width: 600px;
+  width: 80%;
   height: 60px;
   display: flex;
   justify-content: center;
@@ -313,6 +311,7 @@
 #search_form {
   position: absolute;
   top: 80px;
+  width: 80%;
 }
 
 #search_form span {
@@ -325,13 +324,13 @@
 }
 
 .search-input {
-  width: 600px;
+  width: 100%;
   height: 50px;
   border-radius: 8px; 
   border: none;
   box-sizing: border-box;
   padding: 5px;
-  padding-left: 40px;
+  padding-left: 50px;
   font-size: 20px;
 }
 
@@ -341,9 +340,9 @@
 
 /* LINK */
 .links {
-  width: 600px;
+  width: 80%;
   height: calc(100% - 150px);
-  border-radius: 8px;
+  /* border-radius: 8px; */
   position: absolute;
   bottom: 10px;
   box-sizing: border-box;
@@ -352,8 +351,8 @@
   flex-flow: row wrap;
   align-content: flex-start;
   list-style: none;
-  /* border: 3px solid #fff; */
   background-color: #6b75c2;
+  border-bottom: 8px solid #C27E82;
 }
 
 #addShortcut {
@@ -557,30 +556,75 @@
 }
 
 /* LINKS-FOLDER */
-.btn-folder {
-  width: 30px;
-  height: 100px;
-  background-color: #6b75c2;
+
+
+.folders {
   position: absolute;
-  margin-right: -630px;
-  margin-top: 160px;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  right: -40px;
+  top: 10px;
+}
+
+.btn-folder {
+  width: 40px;
+  height: 40px;
+  background-color: #5f6aba;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: #d6676d;
+  cursor: pointer;
+  position: relative;
+}
+
+.btn-addfolder {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   writing-mode: vertical-lr;
   text-orientation: upright;
-  letter-spacing: 5px;
-  text-align: center;
-  box-shadow: 2px 2px #6b74c2;
+  background-color: #adb7ff;
+  font-size: 25px;
+  color: #6b75c2;
+  cursor: pointer;
 }
 
 .folder2 {
-  margin-top: 265px;
-  background-color: #7c87de;
+  background-color: rgba(107, 117, 194, .7);
+  color: #edc94c;
 }
 
 .folder3 {
-  margin-top: 370px;
-  background-color: #909bf0;
+  background-color: rgba(107, 117, 194, .5);
+  color: #248a3d;
+}
+
+.folder4 {
+  color: #2d5ccf;
+  background-color: rgba(107, 117, 194, .3);
+}
+
+.folder5 {
+  color: #3d2e80;
+  background-color: rgba(173, 183, 255, .2);
+}
+
+.foldermenu {
+  width: 70px;
+  height: 30px;
+  background-color: #545454;
+  position: absolute;
+  top: -20px;
+  right: -60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  font-size: 14px;
+  color: #fff;
 }
 
 .disabled {
