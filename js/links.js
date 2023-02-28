@@ -209,11 +209,11 @@ function handleLinkItem() {
   const linkdelete = document.querySelectorAll(".link-delete")
 
   linkedit.forEach( (e) => {
-    e.addEventListener("click", editMenu)
+    e.addEventListener("click", editLink)
   })
 
   linkdelete.forEach( (e) => {
-    e.addEventListener("click", deleteMenu)
+    e.addEventListener("click", deleteLink)
   })
 }
 handleLinkItem()
@@ -268,7 +268,7 @@ document.addEventListener("click", function(e) {
 })
 
 /*링크 삭제*******************/
-function deleteMenu(event) {
+function deleteLink(event) {
   const item = event.target.closest(".link-item")
   item.remove()
   links = links.filter(link => link.id !== parseInt(item.id))
@@ -276,7 +276,7 @@ function deleteMenu(event) {
 }
 
 /*링크 수정*******************/
-function editMenu(event) {
+function editLink(event) {
   event.preventDefault()
   modalBackground.classList.remove("hidden")
   const thisitem = event.target.closest(".link-item")

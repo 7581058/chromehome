@@ -1,6 +1,5 @@
-const buttonAdd = document.querySelector(".folder-add-button")
 const folderEl = document.querySelector("#folders")
-const backgroundLinks = document.querySelector(".links")
+const folderAddButton = document.querySelector(".folder-add-button")
 
 const FOLDERS_KEY = "folders"
 const COUNT_KEY = "count"
@@ -8,17 +7,18 @@ const DELETE_KEY = "deleted"
 
 let folders = ["folder1"] //폴더 배열 
 let count = 1 //폴더 갯수
-let deletedfolders = []
+let deletedfolders = [] //삭제한 폴더 배열
+
 let newfolder = ""
 
-buttonAdd.addEventListener("click", clickAdd)
+folderAddButton.addEventListener("click", clickAdd)
 
-/*폴더 갯수 로컬 스토리지 저장*/
+/*폴더 갯수 로컬스토리지 저장*******************/
 function saveCount() {
   localStorage.setItem(COUNT_KEY, JSON.stringify(count))
 }
 
-/*폴더 갯수 불러오기*/
+/*폴더 갯수 불러오기*******************/
 const savedCount = localStorage.getItem(COUNT_KEY)
 
 if (savedCount !== null) {
@@ -26,14 +26,12 @@ if (savedCount !== null) {
   count = parsedCount
 }
 
-
-
-/*삭제 폴더 로컬 스토리지 저장*/
+/*삭제한 폴더 로컬스토리지 저장*******************/
 function saveDeleted() {
   localStorage.setItem(DELETE_KEY, JSON.stringify(deletedfolders))
 }
 
-/*삭제 폴더 불러오기*/
+/*삭제 폴더 불러오기*******************/
 const savedDelete = localStorage.getItem(DELETE_KEY)
 
 if (savedDelete !== null) {
@@ -41,7 +39,7 @@ if (savedDelete !== null) {
   deletedfolders = parsedDeleted
 }
 
-/*폴더 추가 이벤트*/
+/*폴더 추가 이벤트*******************/
 function clickAdd(event) {
   if(count >= 5) {
     alert("폴더추가는 5개 까지입니다")
@@ -66,22 +64,22 @@ function clickAdd(event) {
   }
 }
 
-/*폴터 로컬 스토리지에 저장*/
+/*생성된 폴더 로컬 스토리지 저장*******************/
 function saveFolders() {
   localStorage.setItem(FOLDERS_KEY, JSON.stringify(folders))
 }
 
-/*폴더 그리기*/
+/*폴더 그리기*******************/
 function paintFolder(newfolder) {
   let buttonNew = document.createElement('button')
   buttonNew.innerHTML = `&#8226;<div id="folder-menu" class="folder-menu hidden">폴더삭제</div>`
   buttonNew.setAttribute("type", "button")
   buttonNew.setAttribute("id", `${newfolder}`)
   buttonNew.setAttribute("class", `folder-button ${newfolder}`)
-  folderEl.insertBefore(buttonNew, buttonAdd)
+  folderEl.insertBefore(buttonNew, folderAddButton)
 }
 
-/*저장된 폴더 불러오기*/
+/*저장된 폴더 불러오기*******************/
 const savedFolders = localStorage.getItem(FOLDERS_KEY)
 
 if (savedFolders !== null) {
@@ -94,42 +92,43 @@ if (savedFolders !== null) {
 }
 
 
-//윈도우 기본 우클릭 방지
+/*윈도우 우클릭 방지*******************/
 window.oncontextmenu = function () {
   return false;
 }
 
-let buttonFolder = []
+//폴더 메뉴 노드 저장
 let folderMenu = ""
+
+//폴더 메뉴 열림닫힘 체크
 let menuon = false
 
+/*폴더 이벤트*******************/
+let folderButton = document.querySelectorAll(".folder-button")
 
-/*폴더 이벤트*/
-buttonFolder = document.querySelectorAll(".folder-button")
-buttonFolder.forEach(item => {
-    item.addEventListener("mouseup", function() {
-      if((event.which == 3) || (event.button == 2)) {
-        //console.log("우클릭")
-        menuon = true
-        console.log("right>>", event)
-        event.target.childNodes[1].classList.remove("hidden")
-        folderMenu = event.target.childNodes[1]
-        folderMenu.addEventListener("click", removeFolder)
+folderButton.forEach(item => {
+  //폴더 우클릭시 메뉴 보이기
+  item.addEventListener("mouseup", function() {
+    if((event.which == 3) || (event.button == 2)) {
+      menuon = true
+      event.target.childNodes[1].classList.remove("hidden")
+      folderMenu = event.target.childNodes[1]
+      folderMenu.addEventListener("click", removeFolder)
+    }
+  })
+  //클릭한 폴더 활성화
+  item.addEventListener("click", function() {
+    for (let x = 0; x < folderButton.length; x++) {
+      if (folderButton[x] == this) {
+        folderButton[x].classList.add('folder_active');
+      } else {
+        folderButton[x].classList.remove('folder_active');
       }
-    })
-    item.addEventListener("click", function() {
-      for (let x = 0; x < buttonFolder.length; x++) {
-        if (buttonFolder[x] == this) {
-          buttonFolder[x].classList.add('folder_active');
-        } else {
-          buttonFolder[x].classList.remove('folder_active');
-        }
-      }
-    }) 
+    }
+  }) 
 })
 
-
-/*폴더 메뉴 취소*/
+/*폴더 메뉴 취소*******************/
 document.addEventListener("click", function(e) {
   if(menuon == true) {
     if(e.target.id != "folder-menu") {
@@ -139,12 +138,13 @@ document.addEventListener("click", function(e) {
   }
 })
 
-/*폴더 삭제*/
+/*폴더 삭제*******************/
 function removeFolder(e) {
   if(count <= 1){
     alert("기본 폴더는 삭제할 수 없습니다")
   }else {
-    console.log("폴더삭제클릭", e.target.parentNode.id)
+    alert("해당 폴더에 저장된 링크는 전부 삭제됩니다")
+
     const item = e.target.closest(".folder-button")
     item.remove()
 
@@ -157,6 +157,21 @@ function removeFolder(e) {
     count-=1
     saveCount()
 
+    //삭제한 폴더에 저장된 링크 삭제
+    const LINKS_KEY = "links"
+    const savedLinks = localStorage.getItem(LINKS_KEY)
+
+    let links = []
+
+    if (savedLinks !== null) {
+      const parsedLinks = JSON.parse(savedLinks)
+      links = parsedLinks
+    }
+
+    links = links.filter(link => link.folder !== e.target.parentNode.id)
+
+    localStorage.setItem(LINKS_KEY, JSON.stringify(links))
+    ///  
     location.reload()
   }
 }
