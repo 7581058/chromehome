@@ -1,19 +1,94 @@
 .naver {
-  background-image: url("../asset/favicon/naver.png");
+  background-image: url("../img/naver.png");
 }
 
+/* OTT */
 .youtube {
-  background-image: url("../asset/favicon/youtube.png");
+  background-image: url("../img/youtube.png");
 }
 
 .tving {
-  background-image: url("../asset/favicon/tving.png");
+  background-image: url("../img/tving.png");
 }
 
 .wavve {
-  background-image: url("../asset/favicon/wavve.png");
+  background-image: url("../img/wavve.png");
 }
 
+.laftel {
+  background-image: url("../img/laftel.png");
+}
+
+.netflix {
+  background-image: url("../img/netflix.png");
+}
+
+.coupangplay {
+  background-image: url("../img/coupangplay.png");
+}
+
+.watcha {
+  background-image: url("../img/watcha.png");
+}
+
+.disneyplus {
+  background-image: url("../img/disneyplus.png");
+}
+
+/* STUDY */
 .fastcampus {
-  background-image: url("../asset/favicon/fastcampus.png");
+  background-image: url("../img/fastcampus.png");
+}
+
+.inflearn {
+  background-image: url("../img/inflearn.png");
+}
+
+.nomadcoders {
+  background-image: url("../img/nomadcoders.png");
+}
+
+.udemy {
+  background-image: url("../img/udemy.png");
+}
+
+.goorm {
+  background-image: url("../img/goorm.png");
+}
+
+.acmicpc {
+  background-image: url("../img/acmicpc.png");
+}
+
+.programmers {
+  background-image: url("../img/programmers.png");
+}
+
+/* TOOLS */
+.gmail {
+  background-image: url("../img/gmail.png");
+}
+
+.nmail {
+  background-image: url("../img/nmail.png");
+}
+
+.gdocs {
+  background-image: url("../img/gdocs.png");
+}
+
+.gmeet {
+  background-image: url("../img/gmeet.png");
+}
+
+.gdrive {
+  background-image: url("../img/gdrive.png");
+}
+
+.notion {
+  background-image: url("../img/notion.png");
+}
+
+.github {
+  background-image: url("../img/github.png");
 }

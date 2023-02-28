@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,112 +7,121 @@
   
   <title>HOME</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- GOOGLE MATERIAL ICONS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  <!-- NAVER FONT -->
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+ 
+  <!-- CSS -->
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/favicon.css">
+
+  <!-- JS -->
   <script defer src="./js/greetings.js" type="module"></script>
   <script defer src="./js/clock.js" type="module"></script>
   <script defer src="./js/todo.js"></script>
-  <script defer src="./js/toggle.js"></script>
-  <script defer src="./js/links.js"></script>
   <script defer src="./js/folder.js"></script>
+  <script defer src="./js/links.js"></script>
+  <script defer src="./js/search.js"></script>
 </head>
-
 <body>
-  <div class="wrap"> 
-    <form id="login-form" class="hidden">
-      <span>Hello, what's your name?</span>
-      <input class="login_input" required maxlength="15" type="text" />
-    </form>
+  <!-- LOGIN -->
+  <form id="login-form" class="hidden">
+    <span>반갑습니다! 이름을 입력해 주세요</span>
+    <input type="text" required maxlength="15"/>
+  </form>
 
-    <div class="container hidden">
-      <div class="left-bar">
-        <span class="material-icons setting-button">
-        settings
-        </span>
-        <span class="material-icons help-button">
-          help_outline
-        </span>
-      </div>
+  <div id="container" class="hidden">
+    <span id="greeting"></span>
+    <div class="boxs">
       <div class="left-box">
-        
         <div class="clocks">
           <span id="date">1995/8/24 수요일</span>
           <span id="clock" >00:00</span>
-          <span id="greeting"></span>
         </div>
+  
         <div class="tools">
-          <div class="tools_google">
-
-          </div>
-          <div class="tools_naver">
-
-          </div>
+          <a href="https://mail.google.com" class="tool-item gmail" target="_blank" alt="gmail" ></a>
+          <a href="https://mail.naver.com" class="tool-item nmail" target="_blank" alt="navermail"></a>
+          <a href="https://docs.google.com" class="tool-item gdocs" target="_blank" alt="googledocs"></a>
+          <a href="https://meet.google.com" class="tool-item gmeet" target="_blank" alt="googlemeet"></a>
+          <a href="https://drive.google.com" class="tool-item gdrive" target="_blank" alt="googledrive"></a>
+          <a href="https://www.notion.so" class="tool-item notion" target="_blank" alt="notion"></a>
+          <a href="https://github.com/7581058" class="tool-item github" target="_blank" alt="github"></a>
         </div>
-
+  
         <div class="todo">
-          <form id="todo_form">
-          <input type="text" placeholder="Write a To Do and Press Enter">
+          <form id="todo-form">
+            <input type="text" placeholder="작성 후 엔터를 눌러주세요">
           </form>
-          <ul id="todo_list"></ul>
+          <ul id="todo-list"></ul>
         </div>
       </div>
-
+  
       <div class="right-box">
-        <div class="search">
-          <div class="search_top">
-            <span class="engine-title">Google</span>
-            <label for="toggle" class="toggle-switch">
-              <span class="toggle_button"></span>
-            </label>
-          </div>
-
-          <form id="search_form">
-            <span class="material-icons">
-              search
-            </span>
-            <input type="text" class="search-input"/>
-          </form>
-
-          <div class="links">
-            <div id="addShortcut">
-              <span class="material-icons btn-thumb">
-                add
-              </span>
-              <span class="item_title">바로가기 추가</span>
-            </div>
-            <div id="folders" class="folders">
-              <div id="folder1" class="btn-folder folder1 folderon">
-                &#8226;
-                <div id="foldermenu" class="foldermenu hidden" value="1">삭제하기</div>
-              </div>
-              
-              <div class="btn-addfolder">+</div>
-            </div>
-          </div>
+        <div class="search-top">
+          <span class="engine-title">GOOGLE</span>
+          <label for="toggle" class="toggle-switch">
+            <span class="toggle-button"></span>
+          </label>
         </div>
-      </div>
-
-      <div class="link-add-bg hidden">
-        <div class="link-add">
-          <span>바로가기 추가</span>
-          <form>
-            <span>이름</span>
-            <input type="text" class="link_name" />
-            <span>주소(URL)</span>
-            <input type="text" class="link_url" /> 
-            <button class="add-close btn-add">취소</button>
-            <input type="submit" value="완료" class="add-submit btn-add" disabled />
-          </form>
+  
+        <form id="search-form">
+          <span class="material-icons">
+            search
+          </span>
+          <input type="text" class="search-input"/>
+        </form>
+  
+        <div class="links">
+          <button type="button" id="link-add-button">
+            <span class="material-icons item__thumb">
+              add
+            </span>
+          </button>
+          <!-- 추후 필요시 업뎃 -->
+          <!-- <ul class="link_pagination">
+            <li>&#8226;</li>
+            <li>&#8226;</li>
+            <li>&#8226;</li>
+            <li>&#8226;</li>
+          </ul> -->
+          <div id="folders" class="folders">
+            <button type="button" id="folder1" class="folder-button folder1 folder_active">
+              &#8226;
+              <div id="folder-menu" class="folder-menu hidden">폴더삭제</div>
+            </button>
+            <button type="button" class="folder-add-button">+</button>
+          </div>
         </div>
       </div>
     </div>
     
+    <div class="right-bar">
+      <span class="material-icons setting-button">
+      settings
+      </span>
+      <span class="material-icons help-button">
+        help_outline
+      </span>
+    </div>
+
+    <div class="link-add-bg hidden">
+      <div class="link-add-modal">
+        <span>바로가기 추가</span>
+        <form>
+          <span>이름</span>
+          <input type="text" class="link-name" />
+          <span>주소(URL)</span>
+          <input type="text" class="link-url" /> 
+          <button type="button" class="modal-close-button modal-button">취소</button>
+          <input type="submit" value="완료" class="modal-submit-button modal-button" disabled />
+        </form>
+      </div>
+    </div>
   </div>
+    
 </body>
 </html>
 

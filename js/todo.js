@@ -1,7 +1,7 @@
 
-const todoForm = document.querySelector("#todo_form")
-const todoInput = document.querySelector("#todo_form input")
-const todoList = document.querySelector("#todo_list")
+const todoForm = document.querySelector("#todo-form")
+const todoInput = document.querySelector("#todo-form input")
+const todoList = document.querySelector("#todo-list")
 
 let todos = []
 let checkstate = []
@@ -41,7 +41,7 @@ function paintTodo(newTodo) {
   chkbox.setAttribute("class", "checkbox")
 
   const span = document.createElement("span")
-  span.setAttribute("class", "todo_text")
+  span.setAttribute("class", "todo__text")
   span.innerText = newTodo.text
 
   const button = document.createElement("span")

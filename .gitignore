@@ -1,4 +1,5 @@
 .cache
-/dist
-/ref
+.parcel-cache
+dist
 node_modules
+*.log
