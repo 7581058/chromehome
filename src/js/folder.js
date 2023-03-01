@@ -101,7 +101,7 @@ window.oncontextmenu = function () {
 let folderMenu = ""
 
 //폴더 메뉴 열림닫힘 체크
-let menuon = false
+let foldermenuon = false
 
 /*폴더 이벤트*******************/
 let folderButton = document.querySelectorAll(".folder-button")
@@ -110,7 +110,7 @@ folderButton.forEach(item => {
   //폴더 우클릭시 메뉴 보이기
   item.addEventListener("mouseup", function() {
     if((event.which == 3) || (event.button == 2)) {
-      menuon = true
+      foldermenuon = true
       event.target.childNodes[1].classList.remove("hidden")
       folderMenu = event.target.childNodes[1]
       folderMenu.addEventListener("click", removeFolder)
@@ -130,10 +130,10 @@ folderButton.forEach(item => {
 
 /*폴더 메뉴 취소*******************/
 document.addEventListener("click", function(e) {
-  if(menuon == true) {
+  if(foldermenuon == true) {
     if(e.target.id != "folder-menu") {
       folderMenu.classList.add("hidden")
-      menuon = false
+      foldermenuon = false
     }
   }
 })
