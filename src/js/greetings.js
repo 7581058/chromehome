@@ -1,4 +1,4 @@
-import * as clockdata from "./clock";
+import * as clockdata from "./clock.js";
 
 const loginForm = document.querySelector("#login-form")
 const loginInput = document.querySelector("#login-form input")
