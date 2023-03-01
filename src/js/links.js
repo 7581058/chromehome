@@ -269,10 +269,12 @@ document.addEventListener("click", function(e) {
 
 /*링크 삭제*******************/
 function deleteLink(event) {
+  event.preventDefault()
   const item = event.target.closest(".link-item")
   item.remove()
   links = links.filter(link => link.id !== parseInt(item.id))
   saveLinks()
+  location.reload()
 }
 
 /*링크 수정*******************/
