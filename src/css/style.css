@@ -181,7 +181,7 @@ button {
   box-sizing: border-box;
   padding: 5px;
   border: none;
-  border-bottom: 3px solid #222;
+  border-bottom: 2px solid #222;
   background-color: #fff;
   outline: none;
   color: #222;
@@ -429,7 +429,7 @@ button {
   width: 60px;
   height: 60px;
   box-sizing: border-box;
-  border: 3px solid #222;
+  border: 2px solid #222;
   border-radius: 100px;
   background-color: #fff;
   color: #222;
@@ -437,8 +437,8 @@ button {
 }
 
 .item__thumb .favicon {
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
   border-radius: 100px;
   background-repeat: no-repeat;
   background-position: center;

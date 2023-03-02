@@ -169,6 +169,8 @@ function paintLink(newLink) {
     urlname = linksplit[linklength-2]
   }else if(linksplit[linklength-1] == "kr/") {
     urlname = linksplit[linklength-3]
+  }else if(linksplit[linklength-1] == "tv/?lang=ko") {
+    urlname = linksplit[linklength-2]
   }
   
   newitem.innerHTML = ` <span id="link-more-button" class="material-icons link-more-button hidden">
